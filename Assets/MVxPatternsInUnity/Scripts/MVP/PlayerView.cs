@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 namespace MVxPatternsInUnity.Scripts.MVP
 {
-    public class ConcretePlayerViewMvp : MonoBehaviour, IPlayerView
+    public class PlayerView : MonoBehaviour
     {
         [SerializeField] private Button levelUpButton;
         [SerializeField] private TextMeshProUGUI levelText;
-        private IPlayerPresenter presenter;
+        private PlayerPresenter presenter;
 
-        public void OnInit(IPlayerPresenter presenter)
+        public void OnInit(PlayerPresenter presenter)
         {
             this.presenter = presenter;
         }

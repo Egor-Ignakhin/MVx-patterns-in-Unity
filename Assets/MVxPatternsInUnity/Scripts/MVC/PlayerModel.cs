@@ -2,7 +2,7 @@ using System;
 
 namespace MVxPatternsInUnity.Scripts.MVC
 {
-    public class ConcretePlayerModelMvc : IPlayerModel
+    public class PlayerModel
     {
         public event Action Changed;
         private int level;

@@ -15,28 +15,28 @@ namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
 {
     public class MvpTests
     {
-        private IPlayerPresenter playerPresenter;
-        private IPlayerModel playerModel;
-        private IPlayerView view;
+        private PlayerPresenter playerPresenter;
+        private PlayerModel playerModel;
+        private PlayerView view;
 
         [UnitySetUp]
         public IEnumerator Setup()
         {
-            playerModel = new ConcretePlayerModelMvp();
+            playerModel = new PlayerModel();
 
-            view = new GameObject().AddComponent<ConcretePlayerViewMvp>();
+            view = new GameObject().AddComponent<PlayerView>();
 
             Button levelUpButton = new GameObject().AddComponent<Button>();
-            FieldInfo levelUpButtonFI = typeof(ConcretePlayerViewMvp).GetField("levelUpButton",
+            FieldInfo levelUpButtonFI = typeof(PlayerView).GetField("levelUpButton",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             levelUpButtonFI.SetValue(view, levelUpButton);
 
             TextMeshProUGUI currentLevelText = new GameObject().AddComponent<TextMeshProUGUI>();
-            FieldInfo currentLevelTextFI = typeof(ConcretePlayerViewMvp).GetField("levelText",
+            FieldInfo currentLevelTextFI = typeof(PlayerView).GetField("levelText",
                 BindingFlags.NonPublic | BindingFlags.Instance);
             currentLevelTextFI.SetValue(view, currentLevelText);
 
-            playerPresenter = new ConcretePlayerPresenterMvp(playerModel, view);
+            playerPresenter = new PlayerPresenter(view, playerModel);
 
             yield return new EnterPlayMode();
         }

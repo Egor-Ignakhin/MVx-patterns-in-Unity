@@ -4,6 +4,6 @@ namespace MVxPatternsInUnity.Scripts
     {
         Mvc,
         Mvp,
-        Mva
+        Mvvm
     }
 }

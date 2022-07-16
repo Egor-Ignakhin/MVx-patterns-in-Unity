@@ -4,14 +4,12 @@ namespace MVxPatternsInUnity.Scripts.MVP
 {
     public class MvpPlayerFactory : IPlayerFactory
     {
-        public IPlayer CreatePlayer()
+        public void CreatePlayer()
         {
-            IPlayerModel model = new ConcretePlayerModelMvp();
-            var concretePlayerView = Object.FindObjectOfType<ConcretePlayerViewMvp>();
-            IPlayerPresenter playerPresenter = new ConcretePlayerPresenterMvp(model, concretePlayerView);
-            concretePlayerView.OnInit(playerPresenter);
-
-            return new MvpPlayer(concretePlayerView);
+            PlayerModel model = new PlayerModel();
+            var playerView = Object.FindObjectOfType<PlayerView>();
+            PlayerPresenter playerPresenter = new PlayerPresenter(playerView, model);
+            playerView.OnInit(playerPresenter);
         }
     }
 }

@@ -1,6 +1,9 @@
-using System;
 using MVxPatternsInUnity.Scripts.MVC;
 using MVxPatternsInUnity.Scripts.MVP;
+using MVxPatternsInUnity.Scripts.MVVM;
+
+using System;
+
 using UnityEngine;
 
 namespace MVxPatternsInUnity.Scripts
@@ -13,7 +16,7 @@ namespace MVxPatternsInUnity.Scripts
         private void Start()
         {
             IPlayerFactory playerFactory = CreatePlayerFactory(pattern);
-            var player = playerFactory.CreatePlayer();
+            playerFactory.CreatePlayer();
         }
 
         private IPlayerFactory CreatePlayerFactory(Patterns pattern)
@@ -25,7 +28,10 @@ namespace MVxPatternsInUnity.Scripts
 
                 case Patterns.Mvp:
                     return new MvpPlayerFactory();
-                
+
+                case Patterns.Mvvm:
+                    return new MvvmPlayerFactory();
+
                 default:
                     throw new Exception(pattern + " is unknown pattern.");
             }

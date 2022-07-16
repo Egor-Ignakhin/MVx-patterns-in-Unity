@@ -1,14 +1,14 @@
 namespace MVxPatternsInUnity.Scripts.MVP
 {
-    public class ConcretePlayerPresenterMvp : IPlayerPresenter
+    public class PlayerPresenter
     {
-        private readonly IPlayerView view;
-        private readonly IPlayerModel model;
+        private readonly PlayerView view;
+        private readonly PlayerModel model;
 
-        public ConcretePlayerPresenterMvp(IPlayerModel model, IPlayerView view)
+        public PlayerPresenter(PlayerView view, PlayerModel model)
         {
-            this.model = model;
             this.view = view;
+            this.model = model;
         }
 
         public void LevelUp()

@@ -1,6 +1,6 @@
 namespace MVxPatternsInUnity.Scripts.MVP
 {
-    public class ConcretePlayerModelMvp : IPlayerModel
+    public class PlayerModel
     {
         private int level;
 

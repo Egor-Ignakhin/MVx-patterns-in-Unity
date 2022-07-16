@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 namespace MVxPatternsInUnity.Scripts.MVC
 {
-    public class ConcretePlayerViewMvc : MonoBehaviour, IPlayerView
+    public class PlayerView : MonoBehaviour
     {
-        private IPlayerModel model;
-        private IPlayerController playerController;
+        private PlayerModel model;
+        private PlayerController playerController;
 
         [SerializeField] private Button levelUpButton;
         [SerializeField] private TextMeshProUGUI levelText;
@@ -17,7 +17,7 @@ namespace MVxPatternsInUnity.Scripts.MVC
             levelUpButton.onClick.AddListener(LevelUp);
         }
 
-        public void OnInit(IPlayerModel m, IPlayerController c)
+        public void OnInit(PlayerModel m, PlayerController c)
         {
             model = m;
             playerController = c;
