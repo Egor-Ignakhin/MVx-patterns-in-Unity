@@ -2,12 +2,12 @@ using System;
 
 namespace MVxPatternsInUnity.Scripts.MVVM
 {
-    public class PlayerViewModelMvvm
+    public class PlayerViewModel
     {
         public event Action Changed;
         private readonly PlayerModelMvvm playerModel;
 
-        public PlayerViewModelMvvm(PlayerModelMvvm playerModel)
+        public PlayerViewModel(PlayerModelMvvm playerModel)
         {
             this.playerModel = playerModel;
             playerModel.Changed += PlayerModel_Changed;
@@ -28,7 +28,7 @@ namespace MVxPatternsInUnity.Scripts.MVVM
             playerModel.LevelUp();
         }
 
-        ~PlayerViewModelMvvm()
+        ~PlayerViewModel()
         {
             playerModel.Changed -= PlayerModel_Changed;
         }

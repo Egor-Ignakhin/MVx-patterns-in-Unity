@@ -3,7 +3,7 @@ using MVxPatternsInUnity.Scripts.MVP;
 using MVxPatternsInUnity.Scripts.MVVM;
 
 using System;
-
+using MVxPatternsInUnity.Scripts.MVA;
 using UnityEngine;
 
 namespace MVxPatternsInUnity.Scripts
@@ -32,6 +32,8 @@ namespace MVxPatternsInUnity.Scripts
                 case Patterns.Mvvm:
                     return new MvvmPlayerFactory();
 
+                case Patterns.Mva:
+                    return new MvaPlayerFactory();
                 default:
                     throw new Exception(pattern + " is unknown pattern.");
             }

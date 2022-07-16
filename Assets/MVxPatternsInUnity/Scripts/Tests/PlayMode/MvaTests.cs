@@ -1,14 +1,12 @@
-
-using MVxPatternsInUnity.Scripts.MVC;
-
 using System.Collections;
-
+using MVxPatternsInUnity.Scripts.MVA;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.TestTools;
 
 namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
 {
-    public class MvcTests
+    public class MvaTests : MonoBehaviour
     {
         [UnityTest]
         public IEnumerator WhenPlayerLevelIsZero_AndPlayerLevelUp_ThenPlayerLevelIsOne()

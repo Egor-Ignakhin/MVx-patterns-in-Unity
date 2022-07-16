@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MvaPlayerFactory : MonoBehaviour
+namespace MVxPatternsInUnity.Scripts.MVA
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MvaPlayerFactory : IPlayerFactory
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void CreatePlayer()
+        {
+            PlayerModel playerModel = new PlayerModel();
+            PlayerView playerView = Object.FindObjectOfType<PlayerView>();
+            PlayerController playerController = new PlayerController(playerModel, playerView);
+            playerView.OnInit(playerController);
+        }
     }
 }

@@ -15,14 +15,14 @@ namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
 {
     public class MvpTests
     {
-        private PlayerPresenter playerPresenter;
-        private PlayerModel playerModel;
+        private PlayerPresenter presenter;
+        private PlayerModel model;
         private PlayerView view;
 
         [UnitySetUp]
         public IEnumerator Setup()
         {
-            playerModel = new PlayerModel();
+            model = new PlayerModel();
 
             view = new GameObject().AddComponent<PlayerView>();
 
@@ -36,7 +36,7 @@ namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
                 BindingFlags.NonPublic | BindingFlags.Instance);
             currentLevelTextFI.SetValue(view, currentLevelText);
 
-            playerPresenter = new PlayerPresenter(view, playerModel);
+            presenter = new PlayerPresenter(view, model);
 
             yield return new EnterPlayMode();
         }
@@ -47,10 +47,10 @@ namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
             // Arrange.
 
             // Act.
-            playerPresenter.LevelUp();
+            presenter.LevelUp();
 
             // Assert.
-            Assert.IsTrue(playerModel.GetLevel() == 1);
+            Assert.IsTrue(model.GetLevel() == 1);
 
             return null;
         }

@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 namespace MVxPatternsInUnity.Scripts.MVVM
 {
-    public class PlayerViewMvvm : MonoBehaviour
+    public class PlayerView : MonoBehaviour
     {
-        private PlayerViewModelMvvm playerViewModel;
+        private PlayerViewModel playerViewModel;
         [SerializeField] private Button levelUpButton;
         [SerializeField] private TextMeshProUGUI levelText;
 
-        public void OnInit(PlayerViewModelMvvm playerViewModel)
+        public void OnInit(PlayerViewModel playerViewModel)
         {
             this.playerViewModel = playerViewModel;
             playerViewModel.Changed += PlayerViewModel_Changed;

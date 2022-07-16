@@ -11,13 +11,13 @@ namespace MVxPatternsInUnity.Scripts.Tests.PlayMode
         public IEnumerator WhenPlayerLevelIsZero_AndPlayerLevelUp_ThenPlayerLevelIsOne()
         {
             // Arrange.
-            PlayerModelMvvm modelMvvm = new PlayerModelMvvm();
+            PlayerModelMvvm model = new PlayerModelMvvm();
 
             // Act.
-            modelMvvm.LevelUp();
+            model.LevelUp();
 
             // Assert.
-            Assert.IsTrue(modelMvvm.GetLevel() == 1);
+            Assert.IsTrue(model.GetLevel() == 1);
 
             return null;
         }

@@ -1,22 +1,17 @@
 using System;
+using UnityEngine;
 
-namespace MVxPatternsInUnity.Scripts.MVVM
+namespace MVxPatternsInUnity.Scripts.MVA
 {
-    public class PlayerModelMvvm
+    public class PlayerModel : MonoBehaviour
     {
         public event Action Changed;
-        public PlayerViewModel playerViewModel;
-
         private int level;
-
-        public void SetPlayerViewModel(PlayerViewModel playerViewModel)
-        {
-            this.playerViewModel = playerViewModel;
-        }
 
         public void LevelUp()
         {
             level++;
+
             Changed?.Invoke();
         }
 
